@@ -9,7 +9,7 @@ module ChimeraHttpClient
       @time     = response.options&.fetch(:total_time, nil)
       @response = response # contains the request
 
-      @deserializer = options[:deserializer][:error]
+      @deserializer = options.dig(:deserializer, :error)
 
       super(response.body)
     end
